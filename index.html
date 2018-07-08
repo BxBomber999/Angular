@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app="calcApp">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+  <title>Calculator App</title>
+  <script src="calculatorApp/app.js"></script>
+</head>
+
+<body>
+  <h1>Calculator App</h1>
+  <div ng-controller="calcCtrl as ctrl">
+    <div>
+      <span>
+        <input ng-model="ctrl.firstOperand">
+        <span ng-bind="ctrl.operator"></span>
+        <input ng-model="ctrl.secondOperand">
+        <button ng-click="ctrl.equals()">=</button>
+        {{ctrl.result}}
+        <!-- <span ng-bind="ctrl.result"></span> -->
+      </span>
+    </div>
+    <br>
+    <div>
+      <span>Choose Operation:
+        <div>
+          <button ng-repeat="op in ctrl.operators" ng-click="ctrl.setOperator(op)" value="+">{{op}}</button>
+        </div>
+      </span>
+    </div>
+  </div>
+</body>
+
+</html>
